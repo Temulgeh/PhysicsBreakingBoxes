@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Levels/TileMap.gd" type="Script" id=1]
+[ext_resource path="res://Level Elements/tileset.tres" type="TileSet" id=2]
+[ext_resource path="res://textures/water_effect_blurry.png" type="Texture" id=3]
+[ext_resource path="res://Shaders/water_shader.shader" type="Shader" id=4]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 4 )
+shader_param/screen_resolution = null
+shader_param/outline_color = Plane( 0, 0, 0.2, 0.4 )
+shader_param/scrolling_a = Vector2( 0.15, -0.12 )
+shader_param/scrolling_b_x = -0.075
+shader_param/scrolling_b_y_sin_speed = 0.7
+shader_param/scrolling_b_y_sin_depth = 50.0
+shader_param/effect_color = Vector3( 0.4, 0.7, 1 )
+shader_param/effect_fill = 0.8
+shader_param/effect_opacity = 0.5
+shader_param/effect_texture = ExtResource( 3 )
+
+[node name="TileMap" type="TileMap"]
+material = SubResource( 1 )
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 1024
+collision_mask = 0
+format = 1
+script = ExtResource( 1 )
