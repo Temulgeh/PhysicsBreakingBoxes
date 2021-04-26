@@ -22,6 +22,8 @@ func _input(event):
 		Global.emit_signal("reset")
 #	if event.is_action_pressed("true_reset"):
 #		get_tree().reload_current_scene()
+	if event.is_action_pressed("mute"):
+		music.playing = not music.playing
 
 
 func _ready():
